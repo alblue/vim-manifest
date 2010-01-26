@@ -1,0 +1,123 @@
+# Vim syntax file for JAR/OSGi Manifest files
+# Maintainer: Alex Blewitt <alex.blewitt@gmail.com>
+# License:    This file is placed in the public domain
+# URL:        http://github.com/alblue/vim-manifest.git
+
+# Comment
+Class-Path: Should be coloured
+Implementation-Title: Should be coloured
+Implementation-Vendor: Should be coloured
+Implementation-Version: Should be coloured
+MD5-Digest: Should be coloured
+Main-Class: Should be coloured
+Name: Should be coloured
+Manifest-Version: Should be coloured
+SHA-Digest: Should be coloured
+Sealed: Should be coloured
+Specification-Title: Should be coloured
+Specification-Vendor: Should be coloured
+Specification-Version: Should be coloured
+Random-Other: Should not be coloured (at least, in same font)
+
+# Java packages
+org.foo Should be coloured
+org.foo.bar Should be coloured
+org.foo.bar.Wibble Should be coloured
+# Currently a bug
+  org.foo.as400.info Should be coloured 
+# Not a package
+org foo bar Should not be coloured
+
+# Error with long line - 72 chars max. First is OK, next two are not.
+012345678901234567890123456789012345678901234567890123456789012345678901
+# Long comment - technically an error? 012345678901234567890123456789012345678901234567890123456789012345678901
+0123456789012345678901234567890123456789012345678901234567890123456789012
+01234567890123456789012345678901234567890123456789012345678901234567890123
+
+# Only if whitespace support is turned on 
+# (disable with set manifest_disable_whitespace=1)
+ Single space OK
+  Two spaces, not so much
+   Or three
+Trailing space bad 
+Trailing many spaceis bad  
+Trailing many spaceis bad   
+Blank line with spaces bad
+# vvv DO NOT DELETE
+  
+     
+  
+	 
+ 	
+# ^^^ DO NOT DELETE
+
+# Only if OSGi support is turned on 
+# (disable with set manifest_disable_osgi=1)
+
+Bundle-ActivationPolicy: Should be coloured
+Bundle-Activator: Should be coloured
+Bundle-Category: Should be coloured
+Bundle-ClassPath: Should be coloured
+Bundle-ContactAddress: Should be coloured
+Bundle-Copyright: Should be coloured
+Bundle-Description: Should be coloured
+Bundle-DocURL: Should be coloured
+Bundle-Icon: Should be coloured
+Bundle-License: Should be coloured
+Bundle-Localization: Should be coloured
+Bundle-ManifestVersion: Should be coloured
+Bundle-Name: Should be coloured
+Bundle-NativeCode: Should be coloured
+Bundle-RequiredExecutionEnvironment: Should be coloured
+Bundle-SymbolicName: Should be coloured
+Bundle-UpdateLocation: Should be coloured
+Bundle-Vendor: Should be coloured
+Bundle-Version: Should be coloured
+DynamicImport-Package: Should be coloured
+Export-Package: Should be coloured
+Export-Service: Should be coloured
+Fragment-Host: Should be coloured
+Import-Package: Should be coloured
+Require-Bundle: Should be coloured
+Service-Component: Should be coloured
+version= Should be coloured
+bundle-version= Should be coloured
+uses:= Should be coloured
+size= Should be coloured
+exclude:= Should be coloured
+osversion= Should be coloured
+processor= Should be coloured
+osname= Should be coloured
+selection-filter= Should be coloured
+language= Should be coloured
+CDC-1.1/Foundation-1.1 Should be coloured
+CDC-1.1/PersonalBasis-1.1 Should be coloured
+CDC-1.1/PersonalJava-1.1 Should be coloured
+OSGi/Minimum-1.2 Should be coloured
+J2SE-1.2 Should be coloured
+J2SE-1.3 Should be coloured
+J2SE-1.4 Should be coloured
+J2SE-1.5 Should be coloured
+JavaSE-1.6 Should be coloured
+
+# Versions (disable as per OSGi above)
+1.2 Should be coloured
+1.2.3 Should be coloured
+1.2.3.foo Should be coloured
+1.2.foo Should be coloured
+# We don't want to handle everything; so this is valid, but not used
+1 Should not be coloured
+1.2.3.4 Should be an error
+1.2.3.4.5 Should be an error
+1.2.3.4.b14.u3 Should be an error
+# Currently a bug
+  1.2.3abc Should be coloured all the way 
+
+# Change the settings and redisplay:
+:syntax clear
+:let manifest_disable_osgi=1
+:syntax on
+
+:syntax clear
+:let manifest_disable_whitespace=1
+:syntax on
