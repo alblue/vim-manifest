@@ -8,6 +8,9 @@
 setlocal iskeyword+=-
 setlocal iskeyword+=:
 
+setlocal foldmethod=expr
+setlocal foldexpr=getline(v:lnum)[0]==\"#\"
+
 " Lines over 72 characters are erroneous
 syntax match manifestError "..........................................................................*"
 
